@@ -1,0 +1,32 @@
+
+type Mutation {
+    createCategory(name: String!): Category @create
+    updateCategory(id: ID!, name: String!): Category @update
+    deleteCategory(id: ID!): Category @delete
+
+    createTag(name: String!): Tag @create
+    updateTag(id: ID, name: String): Tag @update
+    deleteTag(id: ID!): Tag @delete
+
+    createComment(content: String!,approved: Boolean,post_id: ID!,user_id: ID!,parent_id: ID): Comment @create
+    deleteComment(id: ID!): Comment @delete
+
+    createPost(title: String!,content: String!,description: String!,published: Boolean!,featured: Boolean!,enable_comments: Boolean!,category_id: Int!,user_id: Int!,tags: [ID!]): Post @field(resolver: "PostMutations@create")
+    updatePost(id: ID!,title: String!,content: String!,description: String!,published: Boolean!,featured: Boolean!,enable_comments: Boolean!,category_id: Int!,user_id: Int!,tags: [ID!]): Post @field(resolver: "PostMutations@update")
+    deletePost(id: ID!): Post @delete
+
+    createUser(fullname: String!,username: String!,password: String!,password_confirmation: String!,phone: String,email: String!,role: Int!): User @field(resolver: "UserMutation@create")
+    updateUser(id: ID!,fullname: String!,username: String!,bio: String,phone: String,email: String!,role: Int!): User @field(resolver: "UserMutation@update")
+    updateAvatarUser(id: ID!,avatar: Upload): User @field(resolver: "UserMutation@updateAvatar")
+    updateUserPassword(id: ID!,password: String!,password_confirmation: String!): User @field(resolver: "UserMutation@changePassword")
+    deleteUser(id: ID!): User @delete
+
+    login(input: LoginInput @spread): AuthPayload! @field(resolver: "Joselfonseca\\LighthouseGraphQLPassport\\GraphQL\\Mutations\\Login@resolve")
+    adminLogin(input: LoginInput @spread): AuthPayload! @field(resolver: "AuthMutations@login")
+    logout: LogoutResponse! @field(resolver: "Joselfonseca\\LighthouseGraphQLPassport\\GraphQL\\Mutations\\Logout@resolve")
+    # forgotPassword(input: ForgotPasswordInput! @spread): ForgotPasswordResponse! @field(resolver: "Joselfonseca\\LighthouseGraphQLPassport\\GraphQL\\Mutations\\ForgotPassword@resolve")
+    # updateForgottenPassword(input: NewPasswordWithCodeInput @spread): ForgotPasswordResponse! @field(resolver: "Joselfonseca\\LighthouseGraphQLPassport\\GraphQL\\Mutations\\ResetPassword@resolve")
+    register(input: RegisterInput @spread): RegisterResponse! @field(resolver: "AuthMutations@register")
+    # verifyEmail(input: VerifyEmailInput! @spread): AuthPayload! @field(resolver: "Joselfonseca\\LighthouseGraphQLPassport\\GraphQL\\Mutations\\VerifyEmail@resolve")
+    # updatePassword(input: UpdatePassword! @spread): UpdatePasswordResponse! @field(resolver: "Joselfonseca\\LighthouseGraphQLPassport\\GraphQL\\Mutations\\UpdatePassword@resolve") @guard(with: ["api"])
+}

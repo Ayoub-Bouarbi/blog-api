@@ -1,0 +1,24 @@
+
+type Query {
+    categories: [Category!]! @all
+    pagintaedCategories: [Category!]! @paginate
+    category(id: ID @eq): Category @find
+
+    tags: [Tag!]! @all
+    pagintaedTags: [Tag!]! @paginate
+    tag(id: ID @eq): Tag @find
+
+    users: [User!]! @all
+    user(id: ID @eq): User @find
+    loginedUser(id: ID @eq): User @find
+    usersByRole(role: Int @eq): [User!]! @all
+
+    posts: [Post!]! @all
+    post(id: ID @eq): Post @find
+    publishedPosts(published: Boolean! @where(operator: "=")): [Post!]! @all
+    postsByTag(slug: String!,published: Boolean!): [Post!] @field(resolver: "PostQuery@postsByTag")
+    postsByCategory(slug: String!,published: Boolean!): [Post!] @field(resolver: "PostQuery@postsByCategory")
+
+    comments: [Comment!]! @all
+    comment(id: ID @eq): Comment @find
+}
