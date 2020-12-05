@@ -16,8 +16,7 @@
         "laravel/framework": "^7.24",
         "laravel/passport": "^9.0",
         "laravel/tinker": "^2.0",
-        "nuwave/lighthouse": "^4.16",
-        "typicms/nestablecollection": "^1.1"
+        "nuwave/lighthouse": "^4.16"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
