@@ -5,7 +5,6 @@
     1. lighthouse-graphql-passport-auth
     2. Laravel passport
     3. lighthouse
-    4. nestablecollection
 
 ## Getting Started
 
