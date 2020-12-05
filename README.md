@@ -19,23 +19,16 @@
 
 # install Dependencies
     composer install
+    
+# create .env file
 
-# Create new file called .env and copy .env.example into .env file
+# Copy .env.example file to .env and edit database credentials there
 
 # Generate APP_KEY
-    php artisan key:generat
-
-# Configure Database in .env file
-
-    DB_CONNECTION=mysql
-    DB_HOST=127.0.0.1
-    DB_PORT=3306
-    DB_DATABASE=database
-    DB_USERNAME=user
-    DB_PASSWORD=secret    
+    php artisan key:generat  
 
 # Run migrations
-    php artisan migrate
+    php artisan migrate --seed (it has some seeded data for your testing)
 
 # Create Client
     php artisan passport:install
