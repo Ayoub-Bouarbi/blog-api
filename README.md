@@ -9,8 +9,7 @@
 
 ## Getting Started
 
-    ```
-    diff
+    ```diff
         # Clone The Project
             git clone https://github.com/Ayoub-Bouarbi/blog-api.git
 
