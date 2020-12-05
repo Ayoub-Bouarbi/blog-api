@@ -10,6 +10,7 @@
 ## Getting Started
 
     ```diff
+    
         # Clone The Project
             git clone https://github.com/Ayoub-Bouarbi/blog-api.git
 
@@ -23,6 +24,7 @@
 
         # Generate APP_KEY
             php artisan key:generat
+            
         # Configure Database in .env file
 
             DB_CONNECTION=mysql
