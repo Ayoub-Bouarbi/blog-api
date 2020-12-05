@@ -14,9 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/{any}', function () {
-    return view('app');
+    return "Hello World";
 })->where('any', '^(?!api).*$');
-
-// Route::get('/comments', function () {
-//     return Comment::orderBy('parent_id')->get()->childrenName('children')->nest();
-// });
